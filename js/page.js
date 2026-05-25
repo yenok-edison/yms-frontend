@@ -1,6 +1,12 @@
 let rowCount = 1;
 const MAX_MEMBERS = 6;
 
+function updateTotalMembers() {
+    const table = document.querySelector("#memberTable tbody");
+    const currentRows = table.querySelectorAll("tr").length;
+    document.getElementById("totalMembers").value = currentRows;
+}
+
 function addMemberRow() {
 
     const table = document.querySelector("#memberTable tbody");
@@ -49,6 +55,7 @@ function addMemberRow() {
 
     // ✅ Hide button when max reached
     updateAddButton();
+    updateTotalMembers();
 }
 
 function deleteRow(btn) {
@@ -56,6 +63,7 @@ function deleteRow(btn) {
 
     // ✅ Show button again when row deleted
     updateAddButton();
+    updateTotalMembers();
 }
 
 function updateAddButton() {
@@ -74,24 +82,6 @@ function updateAddButton() {
     }
 }
 
-// function handleFileUpload(input, labelId) {
-//     const label = document.getElementById(labelId);
-//     const span  = label.querySelector(".upload-text");
-
-//     if (input.files && input.files[0]) {
-//         const file     = input.files[0];
-//         const fileName = file.name;
-
-//         // Trim long file names
-//         const shortName = fileName.length > 15 
-//             ? fileName.substring(0, 12) + "..." 
-//             : fileName;
-
-//         // Update label to show uploaded state
-//         span.innerHTML = `<i class="ri-checkbox-circle-fill"></i> ${shortName}`;
-//         label.classList.add("uploaded");
-//     }
-// }
 
 function handleFileUpload(input, labelId) {
     const label = document.getElementById(labelId);
@@ -222,320 +212,6 @@ function showToastPage(message,type){
 
 }
 
-// document.addEventListener("DOMContentLoaded", function () {
-
-//     const form = document.getElementById("bandForm");
-
-//     if (!form) {
-//         console.error("❌ bandForm not found");
-//         return;
-//     }
-
-//     form.addEventListener("submit", async function (e) {
-
-//         e.preventDefault();
-
-//         const checkboxes = document.querySelectorAll(".declaration-checkbox");
-
-//         const allChecked = [...checkboxes].every(cb => cb.checked);
-
-//         if (!allChecked) {
-
-//             showToastPage(
-//                 "Please accept all declarations",
-//                 "error"
-//             );
-
-//             return;
-//         }
-
-//         const confirmed = await confirmSubmission();
-//         if (!confirmed) return;
-//         console.log("Submitting form...");
-
-//         // -------------------------
-//         // 1. Collect performers
-//         // -------------------------
-//         let performers = [];
-
-//         document.querySelectorAll("#memberTable tbody tr").forEach(row => {
-
-//             const name = row.querySelector(".p-name").value;
-//             const age = row.querySelector(".p-age").value;
-//             const instrument = row.querySelector(".p-instrument").value;
-//             const proof      = row.querySelector(".p-proof")?.files[0];
-//             const consent    = row.querySelector(".p-consent")?.files[0];
-
-//             if (name || age || instrument) {
-//                 performers.push({
-//                     name,
-//                     age,
-//                     instrument
-//                 });
-//                 if (proof)   formData.append(`proof_${index}`, proof);
-//                 if (consent) formData.append(`consent_${index}`, consent);
-//             }
-
-//         });
-
-//         // -------------------------
-//         // 2. FormData
-//         // -------------------------
-//         const btn =
-//         document.querySelector(".submit-btn");
-
-//         btn.disabled = true;
-//         btn.innerText = "Submitting...";
-//         btn.disabled = false;
-//         btn.innerText = "Submit Entry Form";
-
-//         const formData = new FormData(form);
-//         // const docs = document.getElementById("documents").files;
-//         const video = document.getElementById("songVideo").files[0];
-//         const schoolType =
-//         document.querySelector(
-//         'input[name="school_type"]:checked'
-//         )?.value;
-
-//         const zone =
-//         document.querySelector(
-//         'input[name="zone"]:checked'
-//         )?.value;
-
-//         const song1 =
-//         document.getElementById("song1").value;
-
-//         const song2 =
-//         document.getElementById("song2").value;
-
-//         const composer =
-//         document.getElementById("composer").value;
-
-//         formData.append("school_name", document.getElementById("schoolName").value);
-//         formData.append("city", document.getElementById("city").value);
-//         formData.append("address", document.getElementById("Address").value);
-//         formData.append("contact_person", document.getElementById("contactPerson").value);
-//         formData.append("designation", document.getElementById("designation").value);
-//         formData.append("contact_number", document.getElementById("contactNumber").value);
-//         formData.append("contact_email", document.getElementById("contactEmail").value);
-//         formData.append("total_members", document.getElementById("totalMembers").value);
-//         formData.append("performance_duration", document.getElementById("performanceDuration").value);
-//         formData.append("school_type", schoolType);
-//         formData.append("zone", zone);
-
-//         formData.append("song1", song1);
-//         formData.append("song2", song2);
-
-//         formData.append("composer", composer);
-
-//         // files
-
-//         // for (let i = 0; i < docs.length; i++) {
-//         //     formData.append("documents", docs[i]);
-//         // }
-
-//         formData.append("song_video", video);
-
-//         // performers JSON
-//         formData.append("performers", JSON.stringify(performers));
-//         if(!song1 && !song2){
-
-//             showToastPage(
-//             "Please select Song 1 or enter Song 2",
-//             "error"
-//             );
-
-//             return;
-//         }
-//         if(song2 && !composer){
-
-//             showToastPage(
-//             "Please enter composer name",
-//             "error"
-//             );
-
-//             return;
-//         }
-
-//         // -------------------------
-//         // 3. API CALL
-//         // -------------------------
-//         try {
-
-//             const response = await fetch(`${CONFIG.API_BASE_URL}/api/band-submit/`, {
-//                 method: "POST",
-//                 body: formData
-//             });
-
-//             const data = await response.json();
-
-//             console.log(data);
-
-//             if (data.status === "success") {
-//                 // alert("Submitted Successfully");
-//                 showToastPage(
-//                     "Entry submitted successfully",
-//                     "success"
-//                 );
-
-//                 form.reset();
-//             } else {
-//                 // alert("Error submitting form");
-//                 showToastPage(
-//                     "Submission failed",
-//                     "error"
-//                 );
-//             }
-
-//         } catch (err) {
-//             console.error(err);
-//             showToastPage(
-//                 "Server error",
-//                 "error"
-//             );
-
-//         }
-
-//     });
-
-// });
-// document.addEventListener("DOMContentLoaded", function () {
-
-//     const form = document.getElementById("bandForm");  // ✅ form defined here
-
-//     if (!form) {
-//         console.error("❌ bandForm not found");
-//         return;
-//     }
-//     form.addEventListener("submit", async function (e) {
-
-//         e.preventDefault();
-
-//         const checkboxes = document.querySelectorAll(".declaration-checkbox");
-//         const allChecked = [...checkboxes].every(cb => cb.checked);
-
-//         if (!allChecked) {
-//             showToastPage("Please accept all declarations", "error");
-//             return;
-//         }
-
-//         const confirmed = await confirmSubmission();
-//         if (!confirmed) return;
-
-//         console.log("Submitting form...");
-
-//         // ✅ Move formData to TOP before performers loop
-//         const formData = new FormData(form);
-
-//         // -------------------------
-//         // 1. Collect performers
-//         // -------------------------
-//         let performers = [];
-
-//         document.querySelectorAll("#memberTable tbody tr").forEach((row, index) => {  // ✅ Add index here
-
-//             const name       = row.querySelector(".p-name").value;
-//             const age        = row.querySelector(".p-age").value;
-//             const instrument = row.querySelector(".p-instrument").value;
-//             const proof      = row.querySelector(".p-proof")?.files[0];
-//             const consent    = row.querySelector(".p-consent")?.files[0];
-
-//             if (name || age || instrument) {
-//                 performers.push({ name, age, instrument });
-
-//                 if (proof)   formData.append(`proof_${index}`, proof);
-//                 if (consent) formData.append(`consent_${index}`, consent);
-//             }
-//         });
-
-//         // -------------------------
-//         // 2. FormData — rest of your fields
-//         // -------------------------
-//         const btn = document.querySelector(".submit-btn");
-//         btn.disabled = true;
-//         btn.innerText = "Submitting...";
-
-//         const video      = document.getElementById("songVideo").files[0];
-//         if (video) {
-//             const videoSizeMB = video.size / (1024 * 1024);
-//             if (videoSizeMB > 100) {
-//                 showToastPage(`Video is ${videoSizeMB.toFixed(0)}MB. Please upload under 100MB`, "error");
-//                 btn.disabled = false;
-//                 btn.innerText = "Submit Entry Form";
-//                 return;
-//             }
-//         }
-//         const schoolType = document.querySelector('input[name="school_type"]:checked')?.value;
-//         const zone       = document.querySelector('input[name="zone"]:checked')?.value;
-//         const song1      = document.getElementById("song1").value;
-//         const song2      = document.getElementById("song2").value;
-//         const composer   = document.getElementById("composer").value;
-
-//         formData.append("school_name",          document.getElementById("schoolName").value);
-//         formData.append("state",                document.getElementById("state").value);
-//         formData.append("city",                 document.getElementById("city").value);
-//         formData.append("address",              document.getElementById("Address").value);
-//         formData.append("contact_person",       document.getElementById("contactPerson").value);
-//         formData.append("designation",          document.getElementById("designation").value);
-//         formData.append("contact_number",       document.getElementById("contactNumber").value);
-//         formData.append("contact_email",        document.getElementById("contactEmail").value);
-//         formData.append("total_members",        document.getElementById("totalMembers").value);
-//         // formData.append("performance_duration", document.getElementById("performanceDuration").value);
-//         formData.append("school_type",          schoolType);
-//         formData.append("zone",                 zone);
-//         formData.append("song1",                song1);
-//         formData.append("song2",                song2);
-//         formData.append("composer",             composer);
-//         formData.append("song_video",           video);
-//         formData.append("performers",           JSON.stringify(performers));
-
-//         // Validation
-//         if (!song1 && !song2) {
-//             showToastPage("Please select Song 1 or enter Song 2", "error");
-//             btn.disabled = false;
-//             btn.innerText = "Submit Entry Form";
-//             return;
-//         }
-
-//         if (song2 && !composer) {
-//             showToastPage("Please enter composer name", "error");
-//             btn.disabled = false;
-//             btn.innerText = "Submit Entry Form";
-//             return;
-//         }
-
-//         // -------------------------
-//         // 3. API CALL
-//         // -------------------------
-//         try {
-//             const response = await fetch(`${CONFIG.API_BASE_URL}/api/band-submit/`, {
-//                 method: "POST",
-//                 body: formData
-//             });
-
-//             const data = await response.json();
-//             console.log(data);
-
-//             if (data.status === "success") {
-//                 showToastPage("Entry submitted successfully", "success");
-//                 form.reset();
-//             } else {
-//                 showToastPage("Submission failed", "error");
-//             }
-
-//         } catch (err) {
-//             console.error(err);
-//             showToastPage("Server error", "error");
-
-//         } finally {
-//             // ✅ Always re-enable button
-//             btn.disabled = false;
-//             btn.innerText = "Submit Entry Form";
-//         }
-
-//     });
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const form = document.getElementById("bandForm");
@@ -571,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const designation   = document.getElementById("designation").value.trim();
         const contactNumber = document.getElementById("contactNumber").value.trim();
         const contactEmail  = document.getElementById("contactEmail").value.trim();
-        const totalMembers  = document.getElementById("totalMembers").value.trim();
+        const totalMembers  = document.getElementById("totalMembers").value;
         const schoolType    = document.querySelector('input[name="school_type"]:checked')?.value;
         const zone          = document.querySelector('input[name="zone"]:checked')?.value;
         const song1         = document.getElementById("song1").value.trim();
