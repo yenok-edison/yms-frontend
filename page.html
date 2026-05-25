@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Music Competition Entry Form</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/page.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QMFG9TDCB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-0QMFG9TDCB');
+    </script>
+    <meta name="title" content="Yamaha Teens Rock 2026 | The Battle of Bands | Register Now | Powered by Trinity College London">
+    <meta name="description" content="Yamaha Music India announces the 7th edition of Teens Rock 2026 – The Battle of Bands, powered by Trinity College London. Open to schools and music academies across India. Register now and showcase your talent.">
+    <meta name="keywords" content="Yamaha Teens Rock 2026, Battle of Bands India, school band competition, music academy competition, Yamaha Music India, Trinity College London, band contest India, young musicians India">
+</head>
+
+<body>
+    <div class="header">
+        <div class="banner-image">
+            <img src="/Images/bg-page.jpg" alt="Banner Image">
+        </div>
+    </div>
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <!-- FLOATING TOP LOGOS -->
+    <form id="bandForm">
+        <div class="container">
+
+            <div class="header">
+                <h1>Teen Rock Entry Form</h1>
+
+                <div class="note-box">
+                    <h3>Please Note</h3>
+
+                    <ul class="note-list">
+                        <li>
+                            Submit valid proof of age for all participants
+                            (Birth Certificate / School ID / Passport / Aadhaar Card).
+                        </li>
+
+                        <li>
+                            Signed Parent consent is mandatory for all participants. Download the consent form, fill the details and upload the scanned form in the upload provision given in the ‘Band Members Details’ section.
+                            <a
+                            href="/media/Parental Consent form.pdf"
+                            download
+                            class="pdf-link"
+                            >
+                            Download Consent Form
+                            </a>
+                        </li>
+
+                        <li>
+                            Upload clear photos / scanned copies of all the documents mentioned.
+                        </li>
+                        <li>
+                            The performance video must consist of two songs – Song 1, selected from the given set list of Trinity Rock & Pop syllabus songs (rearranged) and Song 2 being an own-choice song.
+                        </li>
+                        <li>
+                            Ensure the Performance video is also uploaded, in addition to the documents before submitting the entry form.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION A -->
+
+            <div class="section">
+
+                <h2 class="section-title">School / Organisation Details</h2>
+
+                <div class="grid-2">
+
+                    <div class="input-box">
+                        <label>School Name</label>
+                        <input type="text" placeholder="Enter school name" id="schoolName">
+                    </div>
+
+                    <div class="input-box">
+                        <div class="custom-select-wrapper">
+                            <label>State</label>
+                            <select class="premium-select" id="state">
+                                <option value="" disabled selected>Select State</option>
+                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Dadra, Nagar Haveli, Daman and Diu">Dadra, Nagar Haveli, Daman and Diu</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Ladakh">Ladakh</option>
+                                <option value="Lakshadweep">Lakshadweep</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Puducherry">Puducherry</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
+                            <!-- <i class="ri-arrow-down-s-line"></i> -->
+                        </div>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label>City</label>
+                        <input type="text" placeholder="Enter city" id="city">
+                    </div>
+
+                </div>
+                
+                <div class="checkbox-group">
+
+                    <label>
+                        <input
+                        type="radio"
+                        name="school_type"
+                        value="Academic School"
+                    
+                        >
+                        Academic School
+                    </label>
+
+                    <label>
+                        <input
+                        type="radio"
+                        name="school_type"
+                        value="Music School"
+                        >
+                        Music School
+                    </label>
+
+                </div>
+
+                <div class="input-box" style="margin-top:25px;">
+
+                    <label>Zone</label>
+
+                    <div class="checkbox-group">
+
+                        <label>
+                            <input type="radio" name="zone" value="North">
+                            North
+                        </label>
+
+                        <label>
+                            <input type="radio" name="zone" value="South">
+                            South
+                        </label>
+
+                        <label>
+                            <input type="radio" name="zone" value="East">
+                            East
+                        </label>
+
+                        <label>
+                            <input type="radio" name="zone" value="West">
+                            West
+                        </label>
+
+                        <label>
+                            <input type="radio" name="zone" value="Northeast">
+                            Northeast
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="input-box">
+                    <label>Address</label>
+                    <textarea placeholder="Enter address" id="Address"></textarea>
+                </div>
+
+                <div class="grid-2">
+
+                    <div class="input-box">
+                        <label>Contact Person Name</label>
+                        <input type="text" id="contactPerson">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Designation</label>
+                        <input type="text" id="designation">
+                    </div>
+
+
+
+                </div>
+
+                <div class="grid-2">
+
+                    <div class="input-box">
+                        <label>Contact Number</label>
+                        <input type="tel" id="contactNumber" 
+                            maxlength="10"
+                            pattern="[0-9]{10}"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+                            placeholder="Enter 10 digit number"
+                        >
+                    </div>
+
+                    <div class="input-box">
+                        <label>Email Address</label>
+                        <input type="text" id="contactEmail">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- SECTION B -->
+
+            <div class="section">
+
+                <div class="section-flex">
+
+                    <h2 class="section-title">
+                        Band Members Details
+                    </h2>
+
+                    <button type="button" class="add-member-btn" onclick="addMemberRow()">
+                        <i class="ri-add-line"></i>
+                        Add Performer
+                    </button>
+
+                </div>
+                <div class="info-section">
+                    <p class="input-box">
+                        <span>Please Note</span>: Each participating band must consist of a minimum of 3 and a maximum of 6 members. All participants must be below 18 years of age. The proof of age and the signed consent form should be uploaded in any one of these formats : pdf, jpg, jpeg, png.
+                    </p>
+                </div>
+
+                <div class="member-table">
+
+                    <table id="memberTable">
+
+                        <thead>
+
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Instrument</th>
+                                <th>Proof</th>
+                                <th>Consent form</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <input type="text" class="p-name" placeholder="Performer Name">
+                                </td>
+
+                                <!-- <td>
+                                    <input type="number" class="p-age" placeholder="Age">
+                                </td> -->
+                                <td>
+                                    <input type="number" class="p-age" 
+                                        placeholder="Age" 
+                                        min="1" 
+                                        max="18"
+                                        oninput="if(this.value > 18) this.value = 18; if(this.value < 1) this.value = 1;"
+                                    >
+                                </td>
+
+                                <td>
+                                    <input type="text" class="p-instrument" placeholder="Instrument">
+                                </td>
+                                <td>
+                                    <label class="upload-label" id="proof-label-1">
+                                        <input type="file" class="p-proof" accept=".pdf,.jpg,.jpeg,.png" 
+                                            onchange="handleFileUpload(this, 'proof-label-1')">
+                                        <span class="upload-text">
+                                            <i class="ri-upload-2-line"></i> Upload Proof
+                                        </span>
+                                    </label>
+                                </td>
+
+                                <td>
+                                    <label class="upload-label" id="consent-label-1">
+                                        <input type="file" class="p-consent" accept=".pdf,.jpg,.jpeg,.png" 
+                                            onchange="handleFileUpload(this, 'consent-label-1')">
+                                        <span class="upload-text">
+                                            <i class="ri-upload-2-line"></i> Upload Consent
+                                        </span>
+                                    </label>
+                                </td>
+
+                                <td>
+
+                                    <button type="button" class="delete-btn" onclick="deleteRow(this)">
+                                        <i class="ri-delete-bin-6-line"></i>
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+            <div class="grid-2">
+
+                <div class="input-box">
+                    <label>Total Members</label>
+                    <input type="number" id="totalMembers">
+                </div>
+            </div>
+
+            <!-- SECTION C -->
+
+            <div class="section">
+
+                <h2 class="section-title">Repertoire Details</h2>
+
+                <div class="input-box">
+
+                    <label>
+                        Song 1 (Trinity Rock & Pop Syllabus - Rearranged)
+                    </label>
+
+                    <div class="custom-select-wrapper">
+
+                        <!-- <select class="premium-select"> -->
+                        <select class="premium-select" id="song1">
+
+                            <option value="">Select Song</option>
+
+                            <option>STAIRWAY TO HEAVEN – Led Zeppelin (Grade 8 Vocals)</option>
+                            <option>SMELLS LIKE TEEN SPIRIT – Nirvana (Grade 4 Guitar & Bass, Grade 6 Drums)</option>
+                            <option>FIRE – Jimi Hendrix (Grade 8 Drums)</option>
+                            <option>BLACK NIGHT – Deep Purple (Grade 3 Guitar)</option>
+                            <option>ROPE – Foo Fighters (Grade 6 Guitar, Grade 7 Drums)</option>
+                            <option>SWEET CHILD O’ MINE – Guns N’ Roses (Grade 8 Guitar)</option>
+                            <option>SIR DUKE – Stevie Wonder (Grade 5 Drums)</option>
+                            <option>THE TROOPER – Iron Maiden (Grade 8 Guitar, Grade 7 Drums)</option>
+                            <option>JUMP – Van Halen (Grade 7 Keyboards, Grade 4 Drums)</option>
+                            <option>PINBALL WIZARD – The Who & Elton John (Grade 8 Keyboards)</option>
+                            <option>IF I AIN’T GOT YOU – Alicia Keys (Grade 5 Keyboards, Grade 7 Vocals)</option>
+                            <option>BILLIE JEAN – Michael Jackson (Grade 7 Vocals, Grade 1 Bass Drums)</option>
+                            <option>WAKE ME UP BEFORE YOU GO – Wham (Grade 8 Vocals)</option>
+                            <option>TAKE ME TO CHURCH – Hozier (Grade 6 Vocals, Grade 5 Keyboards)</option>
+                            <option>SLEDGEHAMMER – Peter Gabriel (Grade 4 Bass)</option>
+
+                        </select>
+
+                        <i class="ri-arrow-down-s-line"></i>
+
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="input-box">
+                        <label>Song 2 own-choice song</label>
+                        <input type="text" id="song2">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Original Artist / Composer</label>
+                        <input type="text" id="composer">
+                    </div>
+
+                </div>
+
+                <div class="info-section">
+                    <p class="input-box">
+                        <span>Guidelines</span>: Both songs for the contest should be performed one after the other and recorded as a single continuous video without any pre-recording or backing tracks. Overall performance duration should not be more than ten minutes. The video must be uploaded as raw footage without any editing or post-production enhancements. Please ensure that the <strong>video file size does not exceed 100 MB</strong>. If, compress the file before uploading.
+                    </p>
+                </div>
+
+                <div class="upload-box">
+                    <i class="ri-upload-cloud-2-line"></i>
+                    <p>Upload your Performance</p>
+                    <br>
+                    <label class="upload-label" id="song-video-label">
+                        <input type="file" id="songVideo" accept="video/*"
+                            onchange="handleFileUpload(this, 'song-video-label')">
+                        <span class="upload-text">
+                            <i class="ri-upload-2-line"></i> Upload Video
+                        </span>
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- SECTION D -->
+
+            <div class="section">
+
+                <h2 class="section-title">Declaration</h2>
+
+                <div class="declaration">
+
+                    <label>
+                        <input type="checkbox" class="declaration-checkbox">
+                        The band meets the age criteria.
+                    </label>
+
+                    <label>
+                        <input type="checkbox" class="declaration-checkbox">
+                        The performance video submitted adheres to guidelines and it’s a single continuous video without any edits.
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox" class="declaration-checkbox">
+                        All participants must accept the<a href="/media/Teens Rock_Terms and Conditions_Rev5 cleaned.pdf" download target="_blank">terms and conditions.</a>
+                    </label>
+
+                </div>
+
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit
+            </button>
+        </div>
+    </form>
+    
+    <!-- </div> -->
+    <div id="toast"></div>
+    <!-- <script src="/js/script.js"></script> -->
+    
+    <div id="confirmModal" class="modal-overlay">
+        
+        <div class="modal-box">
+            
+            <h3>Confirm Submission</h3>
+            
+            <p>Please recheck all details before submitting. Entries cannot be edited after submission</p>
+            
+            <div class="modal-actions">
+                
+                <button class="btn-cancel" onclick="closeConfirm(false)">
+                    Cancel
+                </button>
+                
+                <button class="btn-confirm" onclick="closeConfirm(true)">
+                    Yes, Submit
+                </button>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        if (sessionStorage.getItem("loggedIn") !== "true") {
+            window.location.href = "index.html"; // ← Redirect if not logged in
+        }
+    </script>
+    <script src="/js/config.js"></script>
+    <script src="/js/page.js"></script>
+</body>
+
+</html>
