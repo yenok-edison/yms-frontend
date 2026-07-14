@@ -1,26 +1,74 @@
+// const signinForm = document.getElementById("signinForm");
+// const signupForm = document.getElementById("signupForm");
+
+// const signinTab = document.querySelectorAll(".tab")[0];
+// const signupTab = document.querySelectorAll(".tab")[1];
+
+// function showSignup() {
+
+//     signinForm.style.display = "none";
+//     signupForm.style.display = "block";
+
+//     signinTab.classList.remove("active");
+//     signupTab.classList.add("active");
+// }
+
+// function showSignin() {
+
+//     signinForm.style.display = "block";
+//     signupForm.style.display = "none";
+
+//     signupTab.classList.remove("active");
+//     signinTab.classList.add("active");
+// }
 const signinForm = document.getElementById("signinForm");
 const signupForm = document.getElementById("signupForm");
 
-const signinTab = document.querySelectorAll(".tab")[0];
-const signupTab = document.querySelectorAll(".tab")[1];
+const signinTab = document.getElementById("signinTab");
+const signupTab = document.getElementById("signupTab");
 
-function showSignup() {
-
-    signinForm.style.display = "none";
-    signupForm.style.display = "block";
-
-    signinTab.classList.remove("active");
-    signupTab.classList.add("active");
-}
-
-function showSignin() {
-
+function showSignin(updateUrl = true) {
     signinForm.style.display = "block";
     signupForm.style.display = "none";
 
-    signupTab.classList.remove("active");
     signinTab.classList.add("active");
+    signupTab.classList.remove("active");
+
+    if (updateUrl) {
+        // history.replaceState(null, "", "#signin");
+        history.replaceState(null, "", "?mode=signin");
+    }
 }
+
+
+function showSignup(updateUrl = true) {
+  signinForm.style.display = "none";
+  signupForm.style.display = "block";
+  
+  signupTab.classList.add("active");
+  signinTab.classList.remove("active");
+  
+  if (updateUrl) {
+    // history.replaceState(null, "", "#signup");
+    history.replaceState(null, "", "?mode=signup");
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    // if (window.location.hash === "#signup") {
+    //     showSignup(false);
+    // } else {
+    //     showSignin(false);
+    // }
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("mode") === "signup") {
+        showSignup(false);
+    } else {
+        showSignin(false);
+    }
+});
+
 
 function showToastPage(message,type){
 

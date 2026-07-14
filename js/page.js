@@ -323,9 +323,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Video size check
-        const videoSizeMB = video.size / (1024 * 1024);
-        if (videoSizeMB > 100) {
-            showToastPage(`Video is ${videoSizeMB.toFixed(0)}MB. Please upload under 100MB`, "error"); return;
+        // const videoSizeMB = video.size / (1024 * 1024);
+        // if (videoSizeMB > 100) {
+        //     showToastPage(`Video is ${videoSizeMB.toFixed(0)}MB. Please upload under 100MB`, "error"); return;
+        // }
+        const videoSizeGB = video.size / (1024 * 1024 * 1024);
+
+        if (videoSizeGB > 3) {
+            showToastPage(
+                `Video is ${videoSizeGB.toFixed(2)} GB. Please upload a file under 3 GB.`,
+                "error"
+            );
+            return;
         }
 
         // Performer validation
