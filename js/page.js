@@ -593,7 +593,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // -------------------------
         const btn = document.querySelector(".submit-btn");
         btn.disabled = true;
-        btn.innerText = "Please don't refresh or close this page, your video is currently uploading.";
+        btn.innerText = "Please don't refresh or close this page, your files are currently uploading...";
         // document.getElementById("uploadProgressContainer").style.display = "block";
 
         // btn.innerText = "Uploading Please wait...";
@@ -704,7 +704,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const data = await response.json();
-            console.log(data);
 
             if (data.status === "success") {
                 showToastPage("Entry submitted successfully", "success");
