@@ -275,7 +275,7 @@
 
                         </thead>
 
-                        <tbody>
+                        <!-- <tbody>
 
                             <tr>
 
@@ -283,9 +283,7 @@
                                     <input type="text" class="p-name" placeholder="Performer Name">
                                 </td>
 
-                                <!-- <td>
-                                    <input type="number" class="p-age" placeholder="Age">
-                                </td> -->
+                         
                                 <td>
                                     <input type="number" class="p-age" placeholder="Age" min="1" max="18"
                                         oninput="if(this.value > 18) this.value = 18; if(this.value < 1) this.value = 1;">
@@ -324,6 +322,8 @@
 
                             </tr>
 
+                        </tbody> -->
+                        <tbody id="memberTableBody">
                         </tbody>
 
                     </table>
@@ -407,7 +407,7 @@
                         performance duration should not be more than ten minutes. You can upload videos up to 3 GB in
                         size. If you are uploading a large file, the submission may take a few minutes to complete after
                         clicking Submit. Please do not close or refresh the page until you receive the submission
-                        confirmation. A stable, high-speed internet connection is recommended.
+                        confirmation. A stable, high-speed internet connection is recommended. 'If you have issue with uploading the video, please get in touch with us at 📞 <strong>+91-78452 05333</strong> or 📧 <strong>teensrock2026@gmail.com</strong>'
                     </p>
                 </div>
 
@@ -452,6 +452,27 @@
                     </label>
 
                 </div>
+
+            </div>
+
+            <div id="uploadProgressContainer" style="display:none; margin-bottom:20px;">
+
+                <!-- <div class="progress-text">
+                    <span>Uploading Performance Video...</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <div id="progressInfo" style="margin-top:10px;color:#fff;font-size:14px;">
+                    Preparing upload...
+                </div> -->
+
+                <p class="progress-note">
+                    Please don't refresh or close this page while uploading.
+                </p>
 
             </div>
 

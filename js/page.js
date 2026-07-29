@@ -1,18 +1,172 @@
-let rowCount = 1;
+// let rowCount = 1;
+// const MAX_MEMBERS = 6;
+
+// function updateTotalMembers() {
+//     const table = document.querySelector("#memberTable tbody");
+//     const currentRows = table.querySelectorAll("tr").length;
+//     document.getElementById("totalMembers").value = currentRows;
+// }
+
+// function addMemberRow() {
+
+//     const table = document.querySelector("#memberTable tbody");
+//     const currentRows = table.querySelectorAll("tr").length;
+
+//     // ✅ Check max limit
+//     if (currentRows >= MAX_MEMBERS) {
+//         showToastPage("Maximum 6 performers allowed!", "error");
+//         return;
+//     }
+
+//     rowCount++;
+
+//     const row = document.createElement("tr");
+
+//     row.innerHTML = `
+//         <td><input type="text" class="p-name" placeholder="Performer Name"></td>
+//         <td><input type="number" class="p-age" placeholder="Age" min="1" max="18" oninput="if(this.value > 18) this.value = 18; if(this.value < 1) this.value = 1;"></td>
+//         <td><input type="text" class="p-instrument" placeholder="Instrument"></td>
+//         <td>
+//             <label class="upload-label" id="proof-label-${rowCount}">
+//                 <input type="file" class="p-proof" accept=".pdf,.jpg,.jpeg,.png"
+//                        onchange="handleFileUpload(this, 'proof-label-${rowCount}')">
+//                 <span class="upload-text">
+//                     <i class="ri-upload-2-line"></i> Upload Proof
+//                 </span>
+//             </label>
+//         </td>
+//         <td>
+//             <label class="upload-label" id="consent-label-${rowCount}">
+//                 <input type="file" class="p-consent" accept=".pdf,.jpg,.jpeg,.png"
+//                        onchange="handleFileUpload(this, 'consent-label-${rowCount}')">
+//                 <span class="upload-text">
+//                     <i class="ri-upload-2-line"></i> Upload Consent
+//                 </span>
+//             </label>
+//         </td>
+//         <td>
+//             <button type="button" class="delete-btn" onclick="deleteRow(this)">
+//                 <i class="ri-delete-bin-6-line"></i>
+//             </button>
+//         </td>
+//     `;
+
+//     table.appendChild(row);
+
+//     // ✅ Hide button when max reached
+//     updateAddButton();
+//     updateTotalMembers();
+// }
+
+// function deleteRow(btn) {
+//     btn.closest("tr").remove();
+
+//     // ✅ Show button again when row deleted
+//     updateAddButton();
+//     updateTotalMembers();
+// }
+
+// function updateAddButton() {
+//     const table       = document.querySelector("#memberTable tbody");
+//     const currentRows = table.querySelectorAll("tr").length;
+//     const addBtn      = document.querySelector(".add-member-btn");
+
+//     if (currentRows >= MAX_MEMBERS) {
+//         addBtn.disabled = true;
+//         addBtn.style.opacity = "0.5";
+//         addBtn.style.cursor  = "not-allowed";
+//     } else {
+//         addBtn.disabled = false;
+//         addBtn.style.opacity = "1";
+//         addBtn.style.cursor  = "pointer";
+//     }
+// }
+
+let rowCount = 0;
+const MIN_MEMBERS = 3;
 const MAX_MEMBERS = 6;
+
+// Create 3 mandatory rows when page loads
+window.addEventListener("DOMContentLoaded", () => {
+    for (let i = 1; i <= MIN_MEMBERS; i++) {
+        addMandatoryRow();
+    }
+
+    updateAddButton();
+    updateTotalMembers();
+});
 
 function updateTotalMembers() {
     const table = document.querySelector("#memberTable tbody");
-    const currentRows = table.querySelectorAll("tr").length;
-    document.getElementById("totalMembers").value = currentRows;
+    document.getElementById("totalMembers").value =
+        table.querySelectorAll("tr").length;
 }
 
+// Create mandatory row
+function addMandatoryRow() {
+    rowCount++;
+
+    const table = document.querySelector("#memberTable tbody");
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td>
+            <input type="text" class="p-name" placeholder="Performer Name" required>
+        </td>
+
+        <td>
+            <input type="number"
+                class="p-age"
+                placeholder="Age"
+                min="1"
+                max="18"
+                required
+                oninput="if(this.value > 18) this.value = 18; if(this.value < 1) this.value = 1;">
+        </td>
+
+        <td>
+            <input type="text" class="p-instrument" placeholder="Instrument" required>
+        </td>
+
+        <td>
+            <label class="upload-label" id="proof-label-${rowCount}">
+                <input type="file"
+                    class="p-proof"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    onchange="handleFileUpload(this,'proof-label-${rowCount}')">
+
+                <span class="upload-text">
+                    <i class="ri-upload-2-line"></i> Upload Proof
+                </span>
+            </label>
+        </td>
+
+        <td>
+            <label class="upload-label" id="consent-label-${rowCount}">
+                <input type="file"
+                    class="p-consent"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    onchange="handleFileUpload(this,'consent-label-${rowCount}')">
+
+                <span class="upload-text">
+                    <i class="ri-upload-2-line"></i> Upload Consent
+                </span>
+            </label>
+        </td>
+
+        <td></td>
+    `;
+
+    table.appendChild(row);
+}
+
+// Add optional members (4th-6th)
 function addMemberRow() {
 
     const table = document.querySelector("#memberTable tbody");
     const currentRows = table.querySelectorAll("tr").length;
 
-    // ✅ Check max limit
     if (currentRows >= MAX_MEMBERS) {
         showToastPage("Maximum 6 performers allowed!", "error");
         return;
@@ -24,26 +178,46 @@ function addMemberRow() {
 
     row.innerHTML = `
         <td><input type="text" class="p-name" placeholder="Performer Name"></td>
-        <td><input type="number" class="p-age" placeholder="Age" min="1" max="18" oninput="if(this.value > 18) this.value = 18; if(this.value < 1) this.value = 1;"></td>
-        <td><input type="text" class="p-instrument" placeholder="Instrument"></td>
+
+        <td>
+            <input type="number"
+                class="p-age"
+                placeholder="Age"
+                min="1"
+                max="18"
+                oninput="if(this.value > 18) this.value = 18; if(this.value < 1) this.value = 1;">
+        </td>
+
+        <td>
+            <input type="text" class="p-instrument" placeholder="Instrument">
+        </td>
+
         <td>
             <label class="upload-label" id="proof-label-${rowCount}">
-                <input type="file" class="p-proof" accept=".pdf,.jpg,.jpeg,.png"
-                       onchange="handleFileUpload(this, 'proof-label-${rowCount}')">
+                <input type="file"
+                    class="p-proof"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    onchange="handleFileUpload(this,'proof-label-${rowCount}')">
+
                 <span class="upload-text">
                     <i class="ri-upload-2-line"></i> Upload Proof
                 </span>
             </label>
         </td>
+
         <td>
             <label class="upload-label" id="consent-label-${rowCount}">
-                <input type="file" class="p-consent" accept=".pdf,.jpg,.jpeg,.png"
-                       onchange="handleFileUpload(this, 'consent-label-${rowCount}')">
+                <input type="file"
+                    class="p-consent"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    onchange="handleFileUpload(this,'consent-label-${rowCount}')">
+
                 <span class="upload-text">
                     <i class="ri-upload-2-line"></i> Upload Consent
                 </span>
             </label>
         </td>
+
         <td>
             <button type="button" class="delete-btn" onclick="deleteRow(this)">
                 <i class="ri-delete-bin-6-line"></i>
@@ -53,32 +227,41 @@ function addMemberRow() {
 
     table.appendChild(row);
 
-    // ✅ Hide button when max reached
     updateAddButton();
     updateTotalMembers();
 }
 
+// Don't allow deleting below 3 members
 function deleteRow(btn) {
+
+    const table = document.querySelector("#memberTable tbody");
+    const currentRows = table.querySelectorAll("tr").length;
+
+    if (currentRows <= MIN_MEMBERS) {
+        showToastPage("Minimum 3 performers are required!", "error");
+        return;
+    }
+
     btn.closest("tr").remove();
 
-    // ✅ Show button again when row deleted
     updateAddButton();
     updateTotalMembers();
 }
 
 function updateAddButton() {
-    const table       = document.querySelector("#memberTable tbody");
+
+    const table = document.querySelector("#memberTable tbody");
     const currentRows = table.querySelectorAll("tr").length;
-    const addBtn      = document.querySelector(".add-member-btn");
+    const addBtn = document.querySelector(".add-member-btn");
 
     if (currentRows >= MAX_MEMBERS) {
         addBtn.disabled = true;
         addBtn.style.opacity = "0.5";
-        addBtn.style.cursor  = "not-allowed";
+        addBtn.style.cursor = "not-allowed";
     } else {
         addBtn.disabled = false;
         addBtn.style.opacity = "1";
-        addBtn.style.cursor  = "pointer";
+        addBtn.style.cursor = "pointer";
     }
 }
 
@@ -195,6 +378,8 @@ function closeConfirm(result){
 
 }
 
+
+
 function showToastPage(message,type){
 
     const toast = document.getElementById("toast");
@@ -298,9 +483,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!composer) {
             showToastPage("Please enter Composer name", "error"); return;
         }
-        if (!video) {
-            showToastPage("Please upload Song Video", "error"); return;
-        }
+        // if (!video) {
+        //     showToastPage("Please upload Song Video", "error"); return;
+        // }
 
         // Video size check
         // const videoSizeMB = video.size / (1024 * 1024);
@@ -316,25 +501,52 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!emailRegex.test(contactEmail)) {
             showToastPage("Please enter a valid Email address", "error"); return;
         }
-        const allowedVideoFormats = ["video/mp4", "video/avi", "video/mkv", "video/mov", "video/wmv", "video/webm"];
+        // const allowedVideoFormats = ["video/mp4", "video/avi", "video/mkv", "video/mov", "video/wmv", "video/webm"];
 
-        if (!allowedVideoFormats.includes(video.type)) {
-            showToastPage("Invalid video format. Allowed: MP4, AVI, MKV, MOV, WMV, WEBM", "error"); return;
-        }
+        // if (!allowedVideoFormats.includes(video.type)) {
+        //     showToastPage("Invalid video format. Allowed: MP4, AVI, MKV, MOV, WMV, WEBM", "error"); return;
+        // }
 
         // Video size check
         // const videoSizeMB = video.size / (1024 * 1024);
         // if (videoSizeMB > 100) {
         //     showToastPage(`Video is ${videoSizeMB.toFixed(0)}MB. Please upload under 100MB`, "error"); return;
         // }
-        const videoSizeGB = video.size / (1024 * 1024 * 1024);
+        // const videoSizeGB = video.size / (1024 * 1024 * 1024);
 
-        if (videoSizeGB > 3) {
-            showToastPage(
-                `Video is ${videoSizeGB.toFixed(2)} GB. Please upload a file under 3 GB.`,
-                "error"
-            );
-            return;
+        // if (videoSizeGB > 3) {
+        //     showToastPage(
+        //         `Video is ${videoSizeGB.toFixed(2)} GB. Please upload a file under 3 GB.`,
+        //         "error"
+        //     );
+        //     return;
+        // }
+        const allowedVideoFormats = [
+            "video/mp4",
+            "video/avi",
+            "video/mkv",
+            "video/mov",
+            "video/wmv",
+            "video/webm"
+        ];
+
+        if (video) {
+
+            if (!allowedVideoFormats.includes(video.type)) {
+                showToastPage("Invalid video format. Allowed: MP4, AVI, MKV, MOV, WMV, WEBM", "error");
+                return;
+            }
+
+            const videoSizeGB = video.size / (1024 * 1024 * 1024);
+
+            if (videoSizeGB > 3) {
+                showToastPage(
+                    `Video is ${videoSizeGB.toFixed(2)} GB. Please upload a file under 3 GB.`,
+                    "error"
+                );
+                return;
+            }
+
         }
 
         // Performer validation
@@ -376,34 +588,91 @@ document.addEventListener("DOMContentLoaded", function () {
         const confirmed = await confirmSubmission();
         if (!confirmed) return;
 
-        console.log("Submitting form...");
-
         // -------------------------
         // 5. Button Disable
         // -------------------------
         const btn = document.querySelector(".submit-btn");
         btn.disabled = true;
-        btn.innerText = "Submitting...";
+        btn.innerText = "Please don't refresh or close this page, your video is currently uploading.";
+        // document.getElementById("uploadProgressContainer").style.display = "block";
+
+        // btn.innerText = "Uploading Please wait...";
 
         // -------------------------
         // 6. Build FormData
         // -------------------------
         const formData = new FormData(form);
 
+        // let performers = [];
+        // document.querySelectorAll("#memberTable tbody tr").forEach((row, index) => {
+        //     const name    = row.querySelector(".p-name").value;
+        //     const age     = row.querySelector(".p-age").value;
+        //     const instrument = row.querySelector(".p-instrument").value;
+        //     const proof   = row.querySelector(".p-proof")?.files[0];
+        //     const consent = row.querySelector(".p-consent")?.files[0];
+
+        //     if (name || age || instrument) {
+        //         performers.push({ name, age, instrument });
+        //         if (proof)   formData.append(`proof_${index}`, proof);
+        //         if (consent) formData.append(`consent_${index}`, consent);
+        //     }
+        // });
         let performers = [];
-        document.querySelectorAll("#memberTable tbody tr").forEach((row, index) => {
-            const name    = row.querySelector(".p-name").value;
-            const age     = row.querySelector(".p-age").value;
-            const instrument = row.querySelector(".p-instrument").value;
-            const proof   = row.querySelector(".p-proof")?.files[0];
+
+        const rows = document.querySelectorAll("#memberTable tbody tr");
+
+        for (let index = 0; index < rows.length; index++) {
+
+            const row = rows[index];
+
+            const name = row.querySelector(".p-name").value.trim();
+            const age = row.querySelector(".p-age").value.trim();
+            const instrument = row.querySelector(".p-instrument").value.trim();
+            const proof = row.querySelector(".p-proof")?.files[0];
             const consent = row.querySelector(".p-consent")?.files[0];
 
-            if (name || age || instrument) {
-                performers.push({ name, age, instrument });
-                if (proof)   formData.append(`proof_${index}`, proof);
-                if (consent) formData.append(`consent_${index}`, consent);
+            // Validate the first 3 mandatory performers
+            if (index < 3) {
+
+                if (!name) {
+                    showToastPage(`Enter Performer ${index + 1} Name`, "error");
+                    return;
+                }
+
+                if (!age) {
+                    showToastPage(`Enter Performer ${index + 1} Age`, "error");
+                    return;
+                }
+
+                if (!instrument) {
+                    showToastPage(`Enter Performer ${index + 1} Instrument`, "error");
+                    return;
+                }
+
+                if (!proof) {
+                    showToastPage(`Upload ID Proof for Performer ${index + 1}`, "error");
+                    return;
+                }
+
+                if (!consent) {
+                    showToastPage(`Upload Consent Form for Performer ${index + 1}`, "error");
+                    return;
+                }
             }
-        });
+
+            // Save performer if any field is filled
+            if (name || age || instrument || proof || consent) {
+                performers.push({ name, age, instrument });
+
+                if (proof) {
+                    formData.append(`proof_${index}`, proof);
+                }
+
+                if (consent) {
+                    formData.append(`consent_${index}`, consent);
+                }
+            }
+        }
 
         formData.append("school_name",    schoolName);
         formData.append("state",          state);
@@ -419,7 +688,10 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("song1",          song1);
         formData.append("song2",          song2);
         formData.append("composer",       composer);
-        formData.append("song_video",     video);
+        // formData.append("song_video",     video);
+        if (video) {
+            formData.append("song_video", video);
+        }
         formData.append("performers",     JSON.stringify(performers));
 
         // -------------------------
@@ -455,3 +727,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
