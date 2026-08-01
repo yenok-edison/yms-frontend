@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <title>Music Competition - Auth</title>
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <!-- Remix Icons -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
@@ -16,14 +16,17 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QMFG9TDCB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    
+
     gtag('config', 'G-0QMFG9TDCB');
   </script>
-  <meta name="title" content="Yamaha Teens Rock 2026 | The Battle of Bands | Register Now | Powered by Trinity College London">
-  <meta name="description" content="Yamaha Music India announces the 7th edition of Teens Rock 2026 – The Battle of Bands, powered by Trinity College London. Open to schools and music academies across India. Register now and showcase your talent.">
-  <meta name="keywords" content="Yamaha Teens Rock 2026, Battle of Bands India, school band competition, music academy competition, Yamaha Music India, Trinity College London, band contest India, young musicians India">
+  <meta name="title"
+    content="Yamaha Teens Rock 2026 | The Battle of Bands | Register Now | Powered by Trinity College London">
+  <meta name="description"
+    content="Yamaha Music India announces the 7th edition of Teens Rock 2026 – The Battle of Bands, powered by Trinity College London. Open to schools and music academies across India. Register now and showcase your talent.">
+  <meta name="keywords"
+    content="Yamaha Teens Rock 2026, Battle of Bands India, school band competition, music academy competition, Yamaha Music India, Trinity College London, band contest India, young musicians India">
 </head>
 
 <body>
@@ -32,14 +35,35 @@
       <img src="/Images/image-1.jpg" alt="Teens Rock Band Competition" class="panel-image">
     </div>
 
+    <div class="right-panel">
+      <div class="form-box" style="text-align: center; max-width: 600px; margin: auto;">
+        <h2 style="color:#fcb900;">Registrations Closed</h2>
 
-    <!-- RIGHT SIDE -->
+        <p class="subtitle" style="font-size:18px; line-height:1.8; margin-top:20px;">
+          Registrations for <strong>Teens Rock 2026</strong> have now closed.
+        </p>
+
+        <p class="subtitle" style="font-size:17px; line-height:1.8;">
+          A big thank you to all the bands, schools, teachers, and participants
+          who showed interest and submitted their entries.
+        </p>
+
+        <p class="subtitle" style="font-size:17px; line-height:1.8;">
+          We look forward to an exciting competition and wish all participating
+          bands the very best.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+<!-- <body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="/Images/image-1.jpg" alt="Teens Rock Band Competition" class="panel-image">
+    </div>
+
     <div class="right-panel">
 
-      <!-- <div class="tabs">
-        <div class="tab active" onclick="showSignin()">Sign In</div>
-        <div class="tab" onclick="showSignup()">Sign Up</div>
-      </div> -->
       <div class="tabs">
         <div id="signinTab" class="tab active" onclick="showSignin()">Sign In</div>
         <div id="signupTab" class="tab" onclick="showSignup()">Sign Up</div>
@@ -47,7 +71,6 @@
 
       <div id="signinForm">
 
-        <!-- SIGN IN FORM -->
         <div class="form-box">
 
           <h2>Welcome Back</h2>
@@ -64,8 +87,8 @@
             </div>
 
             <div class="input-box">
-                <input type="password" id="loginPassword" placeholder="Password">
-                <i class="ri-eye-off-line toggle-password" onclick="togglePassword('loginPassword', this)"></i>
+              <input type="password" id="loginPassword" placeholder="Password">
+              <i class="ri-eye-off-line toggle-password" onclick="togglePassword('loginPassword', this)"></i>
             </div>
 
             <div class="remember">
@@ -86,7 +109,8 @@
               Don't have an account?
               <a href="#" onclick="showSignup()">Create Account</a>
               <p class="subtitle" style="font-size:18px; margin-top: 10px">
-                <a style="font-weight: bold; color:#fcb900" href="/media/Teens Rock_Terms and Conditions_Final.pdf" target="_blank">How to participate</a>
+                <a style="font-weight: bold; color:#fcb900" href="/media/Teens Rock_Terms and Conditions_Final.pdf"
+                  target="_blank">How to participate</a>
               </p>
             </div>
 
@@ -97,7 +121,6 @@
       </div>
 
 
-      <!-- SIGN UP FORM -->
       <div id="signupForm" style="display:none;">
 
         <div class="form-box signup-form">
@@ -105,11 +128,11 @@
           <h2>Create Account</h2>
 
           <p class="subtitle">
-            <span style="font-weight: bold; color:#fcb900">Please note:</span> Registrations are permitted only through recognized Schools / Academic Institutions / Music Academies and not from individual participants.
+            <span style="font-weight: bold; color:#fcb900">Please note:</span> Registrations are permitted only through
+            recognized Schools / Academic Institutions / Music Academies and not from individual participants.
           </p>
           <p class="subtitle" style="text-align: center; font-size:20px;">
-            <a style="font-weight: bold; color:#fcb900;" 
-              href="/media/Teens Rock_Terms and Conditions_Final.pdf"  
+            <a style="font-weight: bold; color:#fcb900;" href="/media/Teens Rock_Terms and Conditions_Final.pdf"
               target="_blank">
               How to participate
             </a>
@@ -129,24 +152,21 @@
             </div>
 
             <div class="input-box">
-              <input type="tel" id="signupPhone" placeholder="Phone Number"
-              maxlength="10"
-              pattern="[0-9]{10}"
-              oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
-              placeholder="Enter 10 digit number"
-              required>
+              <input type="tel" id="signupPhone" placeholder="Phone Number" maxlength="10" pattern="[0-9]{10}"
+                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+                placeholder="Enter 10 digit number" required>
               <i class="ri-phone-fill"></i>
-              
+
             </div>
 
             <div class="input-box">
-                <input type="password" id="signupPassword" placeholder="Create Password">
-                <i class="ri-eye-off-line toggle-password" onclick="togglePassword('signupPassword', this)"></i>
+              <input type="password" id="signupPassword" placeholder="Create Password">
+              <i class="ri-eye-off-line toggle-password" onclick="togglePassword('signupPassword', this)"></i>
             </div>
 
             <div class="input-box">
-                <input type="password" id="signupConfirmPassword" placeholder="Confirm Password">
-                <i class="ri-eye-off-line toggle-password" onclick="togglePassword('signupConfirmPassword', this)"></i>
+              <input type="password" id="signupConfirmPassword" placeholder="Confirm Password">
+              <i class="ri-eye-off-line toggle-password" onclick="togglePassword('signupConfirmPassword', this)"></i>
             </div>
 
             <button type="submit" class="submit-btn">
@@ -157,7 +177,7 @@
               Already have an account?
               <a href="#" onclick="showSignin()">Login Here</a>
             </div>
-            
+
 
           </form>
 
@@ -169,9 +189,9 @@
 
   </div>
   <div id="toast"></div>
-  
+
   <script src="/js/config.js"></script>
   <script src="/js/script.js"></script>
-</body>
+</body> -->
 
 </html>
