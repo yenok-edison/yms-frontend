@@ -662,3 +662,217 @@ body::before{
 .toggle-password:hover {
     color: #333;
 }
+
+
+
+/* ================================
+   VOTING CONTENT
+================================ */
+
+.vote-box {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.vote-box h2 {
+  color: #fcb900;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 22px;
+  line-height: 1.2;
+}
+
+.vote-box .subtitle {
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 22px 0;
+  color: #e5e5e5;
+}
+
+.vote-box .intro-text {
+  font-size: 17px;
+  margin-top: 0;
+}
+
+.vote-box strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+
+/* ================================
+   VOTE BUTTON
+================================ */
+
+.vote-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-width: 200px;
+  padding: 14px 30px;
+
+  background: #fcb900;
+  color: #111827;
+
+  border: 2px solid #fcb900;
+  border-radius: 10px;
+
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.vote-btn i {
+  font-size: 22px;
+}
+
+.vote-btn:hover {
+  background: transparent;
+  color: #fcb900;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 25px rgba(252, 185, 0, 0.25);
+}
+
+
+/* ================================
+   VOTE URL
+================================ */
+
+.vote-link {
+  margin: 8px 0 25px;
+}
+
+.vote-link a {
+  color: #fcb900;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.vote-link a:hover {
+  text-decoration: underline;
+}
+
+
+/* ================================
+   VOTING DATES
+================================ */
+
+.voting-dates {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  margin: 28px auto;
+  padding: 18px 20px;
+
+  border: 1px solid rgba(252, 185, 0, 0.45);
+  border-radius: 12px;
+
+  background: rgba(252, 185, 0, 0.06);
+
+  text-align: left;
+}
+
+.voting-dates > i {
+  flex-shrink: 0;
+
+  color: #fcb900;
+  font-size: 30px;
+}
+
+.voting-dates div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.voting-dates span {
+  color: #dddddd;
+  font-size: 15px;
+}
+
+.voting-dates strong {
+  color: #fcb900;
+  font-size: 16px;
+}
+
+
+/* ================================
+   FINAL TEXT
+================================ */
+
+.final-text {
+  margin-top: 30px;
+
+  color: #fcb900;
+
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+  .vote-box {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .vote-box h2 {
+    font-size: 32px;
+  }
+
+  .vote-box .intro-text {
+    font-size: 17px;
+  }
+
+  .vote-box .subtitle {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .vote-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .voting-dates {
+    text-align: left;
+    padding: 15px;
+  }
+
+  .voting-dates > i {
+    font-size: 25px;
+  }
+
+  .voting-dates span {
+    font-size: 13px;
+  }
+
+  .voting-dates strong {
+    font-size: 14px;
+  }
+
+  .final-text {
+    font-size: 21px;
+  }
+}
